@@ -2,31 +2,29 @@
 
 using namespace std;
 
-void myFunction() {
-    int yourNumber = 0;
+void isThisNumberFive() {
+    double yourNumber = {};
 
-    cout << endl << endl << "input a number. (any number below the 32-bit integer limit which is 2'147'483'647)" << endl
+    cout << endl << endl << "input a number." << endl
          << "your number: ";
     
     cin >> yourNumber;
 
-    if (cin) {
-
-      if (yourNumber > 5) {cout << "this number is bigger than 5.";}
-      else if (yourNumber == 5) {cout << "this number is 5.";}
-      else {cout << "this number is not bigger than 5";}
-}
-    else {
-      
-      cout << "this number is not a number";
+    if (!(cin)) {
+      cout << "your input is not a number or its too large";
       cin.clear();
       cin.ignore(10000, '\n'); // dont even try
+
+      return;
     }
+
+    if (yourNumber > 5) {cout << "this number is bigger than 5.";}
+    else if (yourNumber == 5) {cout << "this number is 5.";}
+    else {cout << "this number is not bigger than 5";}
 }
     
 
 int main() {
-  while(true) {myFunction();} // i think it would be bad practice if i looped inside main()
+  while (true) {isThisNumberFive();}
 
-  return 0;
 }
